@@ -8,158 +8,186 @@
 
 <body onload="prepareDeck(); addEnter();">
 <header>
-
-    <div class="logo header-left"></div>
-    <div class="guide-button header-left" onClick="openIt(document.getElementById('guide-container')); openIt(document.getElementById('whiteout'))">Instructions</div>
-    <input class="guide-button header-left input-text" id="player-name" type="text" placeholder="Add up to 9 players here.">
-	<div class="guide-button header-left button" id="add-player" onClick="populatePawns();">Add player</div>
-	
+  <div class="logo header-left"></div>
+  <div class="guide-button header-left" onClick="openIt(document.getElementById('guide-container')); openIt(document.getElementById('whiteout'))">Instructions</div>
+  <input class="guide-button header-left input-text" id="player-name" type="text" placeholder="Add up to 9 players here.">
+  <div class="guide-button header-left button" id="add-player" onClick="populatePawns();">Add player</div>
 </header>
-
-	
 <div id="player-container">
-
-    <div id="player-list">
-		
-		<div id="pawns-all">
-<!--
-		<div class="pawn-container">
+  <div id="player-list">
+    <div id="pawns-all"> 
+      <!---
+<div class="pawn-container">
       <div class="player-pawn">
         <div class="player-1 active"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Lyuba</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Lyuba</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-2"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Vincent</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Vincent</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-3"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Luisa</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Luisa</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-4"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Kyriaki</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Kyriaki</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-5"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Hanne</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Hanne</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-6"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Fleur</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Fleur</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-7"></div>
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Nina</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Nina</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-8"></div>
-		  
+  
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Ben</div>
-		</div>
-		
-		<div class="pawn-container inactive">
+<div class="player-name">Ben</div>
+</div>
+
+<div class="pawn-container inactive">
       <div class="player-pawn">
         <div class="player-9"></div>
-		  
+  
       </div>
       <div class="pawn-shadow"></div>
-			<div class="player-name">Jerry</div>
-		</div>
--->
+<div class="player-name">Jerry</div>
+</div>
+--> 
     </div>
-    </div>
-	  
+  </div>
 </div>
 <div id="game-container">
-
-	
-<div id="flipper" onclick="flipOnOff();">
-  <div class="flip-card" id="card-a">
-    <div class="flip-card-inner">
-      <div class="flip-card-front" id="card-front-a">
-        <div class="container">
-          <div class="center">
-            <h1>Subject</h1>
+  <div class="sub-container">
+    <div id="flipper" onclick="flipOnOff();">
+      <div class="flip-card" id="card-a">
+        <div class="flip-card-inner">
+          <div class="flip-card-front" id="card-front-a">
+            <div class="container">
+              <div class="center">
+                <h1>Subject</h1>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back" id="card-back-a">
+            <div class="container">
+				<div class="prompt">Teach...</div>
+              <div class="center">
+                <h2 id="question-a-container"></h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="flip-card-back" id="card-back-a">
-        <div class="container">
-          <div class="center">
-            <h2 id="question-a-container"></h2>
+      <div class="flip-card" id="card-b">
+        <div class="flip-card-inner">
+          <div class="flip-card-front" id="card-front-b">
+            <div class="container">
+              <div class="center">
+                <h1>Learner Profile</h1>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back" id="card-back-b">
+            <div class="container">
+				<div class="prompt">To...</div>
+              <div class="center">
+                <h2 id="question-b-container" class="hidden"></h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="flip-card" id="card-b">
-    <div class="flip-card-inner">
-      <div class="flip-card-front" id="card-front-b">
-        <div class="container">
-          <div class="center">
-            <h1>Learner Profile</h1>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card-back" id="card-back-b">
-        <div class="container">
-          <div class="center">
-            <h2 id="question-b-container" class="hidden"></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="sub-container">
+
+<div id="game-board">
+<div class="game-board-square" onclick="selectDeselect(this)">	A live stream Q and A	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A live webinar	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A live lecture	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	Short-form video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	Long-form video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	An emotional video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A documentary style video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A "choose your adventure" video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	An interactive video with immediate feedback	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video that explains a case study	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video to show something too dangerous to do in real life	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video to show something too impractical to do in real life	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video with actors roleplaying	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video with diagrams/ infographics	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A whiteboard animation video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video to have open while completing the corresponding task	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video that shows a process step-by-step	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video lecture	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	An interview	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A casual video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	360 degree video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	POV video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	VR/AR video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video with subtitles	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video with audio-description	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A video with no audio	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A tik-tok	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	A funny video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	No video	</div>
+<div class="game-board-square" onclick="selectDeselect(this)">	Other kind of video	</div>
+
 </div>
 
-	
 </div>
 
-	<div id="whiteout" class="open"></div>
-	
-	
-	<div id="guide-container" class="open" onClick="unopenIt(document.getElementById('guide-container'));unopenIt(document.getElementById('whiteout'));">
-		<div class="x-button">X</div>
-	<h2>The Learning Video Game</h2>
-		<h3>How to play</h3>
-		<p>1. Add up to 9 players by entering their names at the top of the page and clicking the green button.</p>
-		<p>2. Once you are ready to play, click the card decks to reveal the subject to teach and the learner profile.</p>
-		<p>3. Select from the video format cards at the bottom the most appropriate for this combination.</p>
-		<p>4. Explain your choice to your colleagues and feel free to have a discussion!</p>
-		<p>5. Click the card deck to stop your turn, and click again to start with the next player.</p>
-		<p>Keep going until you have completed all the combinations!</p>
-			
+</div>
+<div id="whiteout" class="open"></div>
+<div id="guide-container" class="open" onClick="unopenIt(document.getElementById('guide-container'));unopenIt(document.getElementById('whiteout'));">
+  <div class="x-button">X</div>
+  <h2>The Learning Video Game</h2>
+  <h3>How to play</h3>
+  <p>1. Add up to 9 players by entering their names at the top of the page and clicking the green button.</p>
+  <p>2. Once you are ready to play, click the card decks to reveal the subject to teach and the learner profile.</p>
+  <p>3. Select from the options on the video format board at the bottom the most appropriate for this combination.</p>
+  <p>4. Explain your choice to your colleagues and feel free to have a discussion!</p>
+  <p>5. Click the card deck to stop your turn, and click again to start with the next player.</p>
+  <p>Keep going until you have completed all the combinations!</p>
 </div>
 </body>
 </html>

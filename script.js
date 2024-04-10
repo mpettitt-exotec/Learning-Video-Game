@@ -153,6 +153,8 @@ var subjects = ["Fire Safety","Electrical Safety","Listening Skills","Stress Man
 
 var learners = ["A child","A busy worker","A disengaged worker","Learner with previous learning experience","Technophobe","New Exoperson","Partially sighted person","Deaf person","A person in a different country/timezone","A small audience (less than 10 people)","All Exopeople","A person not fluent in the language","A complete beginner","External worker","Intern (stagiaire)","A learner resistant to e-learning","A c-level"]
 
+var videos = ["A live stream Q and A","A live webinar","A live lecture","Short-form video","Long-form video","An emotional video","A documentary style video","A 'choose your adventure' video","An interactive video with immediate feedback","A video that explains a case study","A video to show something too dangerous to do in real life","A video to show something too impractical to do in real life","A video with actors roleplaying","A video with diagrams/infographics","A whiteboard animation video","A video to have open while completing the corresponding task","A video that shows a process step-by-step","A video lecture","An interview","360 degree video","POV video","VR/AR video","A video with subtitles","A video with audio-description","A video with no audio","A tik-tok","A funny video","No video","Other kind of video"]
+
 var questionsLive = [];
 
 
@@ -261,6 +263,7 @@ function prepareDeck() {
             unflip();
             /*depopulate()*/
             progress();
+			wipeBoard();
             /*stopTimer();*/
             hide(document.getElementById("question-a-container"));
             hide(document.getElementById("question-b-container"));
@@ -398,5 +401,35 @@ function verify() {
 		hideCopyright();
 	} else {
 		document.getElementById("copyright-warning").innerText = "Please click to confirm that you have read an undertood this message."
+	}
+}
+
+function populateVideoCards(array,location) {
+	for (i=0;i<array.length;i++) {
+	var a = document.createElement("DIV");
+	a.classList.add("video-card");
+	var b = document.createElement("DIV");
+	b.classList.add("video-card-content");
+	
+	b.innerText = array[i];
+	a.appendChild(b);
+		
+	document.getElementById(location).appendChild(a);
+		console.log("Appended " + a);
+	}
+}
+
+function selectDeselect(a) {
+	if (a.classList.contains("selected")) {
+		a.classList.remove("selected")
+	} else {
+		a.classList.add("selected")
+	}
+}
+
+function wipeBoard() {
+	var allSquares = document.getElementsByClassName("game-board-square");
+	for (i=0;i<allSquares.length;i++) {
+		if (allSquares[i].classList.contains("selected")) {allSquares[i].classList.remove("selected")};
 	}
 }
