@@ -4,9 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
+<script src="SCORM_API_wrapper.js"></script>
 </head>
 
-<body onload="prepareDeck(); addEnter();">
+<body onload="prepareDeck(); addEnter(); getScorm()" onUnload="closeScorm();">
 <header>
   <div class="logo header-left"></div>
   <div class="guide-button header-left" onClick="openIt(document.getElementById('guide-container')); openIt(document.getElementById('whiteout'))">Instructions</div>
@@ -136,14 +137,9 @@
         </div>
       </div>
     </div>
-  </div>
-
-<div class="sub-container">
-
-<div id="game-board">
-<div class="game-board-square" onclick="selectDeselect(this)">	A live stream Q and A	</div>
-<div class="game-board-square" onclick="selectDeselect(this)">	A live webinar	</div>
-<div class="game-board-square" onclick="selectDeselect(this)">	A live lecture	</div>
+	  
+	  <div id="game-board">
+<div class="game-board-square" onclick="selectDeselect(this)">	A live video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	Short-form video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	Long-form video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	An emotional video	</div>
@@ -155,12 +151,10 @@
 <div class="game-board-square" onclick="selectDeselect(this)">	A video to show something too impractical to do in real life	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	A video with actors roleplaying	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	A video with diagrams/ infographics	</div>
-<div class="game-board-square" onclick="selectDeselect(this)">	A whiteboard animation video	</div>
-<div class="game-board-square" onclick="selectDeselect(this)">	A video to have open while completing the corresponding task	</div>
+<div class="game-board-square joker" onclick="selectDeselect(this)">	No video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	A video that shows a process step-by-step	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	A video lecture	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	An interview	</div>
-<div class="game-board-square" onclick="selectDeselect(this)">	A casual video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	360 degree video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	POV video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	VR/AR video	</div>
@@ -169,10 +163,15 @@
 <div class="game-board-square" onclick="selectDeselect(this)">	A video with no audio	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	A tik-tok	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	A funny video	</div>
-<div class="game-board-square" onclick="selectDeselect(this)">	No video	</div>
 <div class="game-board-square" onclick="selectDeselect(this)">	Other kind of video	</div>
 
 </div>
+	  
+  </div>
+
+<div class="sub-container">
+
+
 
 </div>
 
@@ -184,7 +183,7 @@
   <h3>How to play</h3>
   <p>1. Add up to 9 players by entering their names at the top of the page and clicking the green button.</p>
   <p>2. Once you are ready to play, click the card decks to reveal the subject to teach and the learner profile.</p>
-  <p>3. Select from the options on the video format board at the bottom the most appropriate for this combination.</p>
+  <p>3. Select from the options on the video format board the most appropriate for this combination.</p>
   <p>4. Explain your choice to your colleagues and feel free to have a discussion!</p>
   <p>5. Click the card deck to stop your turn, and click again to start with the next player.</p>
   <p>Keep going until you have completed all the combinations!</p>

@@ -1,6 +1,21 @@
 
 // JavaScript Document
 
+//for SCORM
+
+function getScorm() {
+	pipwerks.SCORM.init();
+}
+
+function closeScorm() {
+    pipwerks.SCORM.quit();
+}
+
+function completeGame() {
+    pipwerks.SCORM.data.set('cmi.core.lesson_status', 'completed');
+    pipwerks.SCORM.data.set('cmi.core.score.raw', '100');
+}
+
 var currentQuestion = 0;
 var isflipped = 0;
 var currentHowTo = 4;
@@ -31,34 +46,6 @@ function progressPlayer() {
 	pawnList[currentPlayer].classList.remove("inactive");
 	pawnList[currentPlayer].classList.add("active");
 }
-}
-
-function startTimer() {
-  var presentTime = document.getElementById('timer').innerHTML;
-  var timeArray = presentTime.split(/[:]+/);
-  var m = timeArray[0];
-  var s = checkSecond((timeArray[1] - 1));
-  if(s==59){m=m-1}
-  if(m<0){
-    return
-  }
-  
-  document.getElementById('timer').innerHTML =
-    m + ":" + s;
-  /*console.log(m)*/
-  timer5 = setTimeout(startTimer, 1000);
-  
-}
-
-function checkSecond(sec) {
-  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-  if (sec < 0) {sec = "59"};
-  return sec;
-}
-
-function stopTimer() {
-	 clearTimeout(timer5);
-	document.getElementById('timer').innerHTML = "5:00";
 }
 
 function hide(a) {
@@ -243,6 +230,11 @@ function prepareDeck() {
 
     function progress() {
         currentQuestion++
+		
+		if(currentQuestion == 1) {
+			try {completeGame();} catch (error) {/*do nothing*/};
+		}
+		
         if (currentQuestion >= (subjects.length)) {
             currentQuestion = 0;
             shuffle(questions);

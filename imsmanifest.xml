@@ -18,9 +18,9 @@ Provided by Rustici Software - www.scorm.com.
 	</metadata>
 	<organizations default="B0">
 		<organization identifier="B0">
-			<title>Learning Journey Game</title> 
+			<title>Video Learning Game</title> 
 			<item identifier="i1" identifierref="r1" isvisible="true">
-				<title>Learning Journey Game</title> 
+				<title>Video Learning Game</title> 
 			</item>
 		</organization>
 	</organizations>
